@@ -1,19 +1,7 @@
 {
   "data": {
-    "userTenants": [
-      {
-        "id": "40eaf721-236a-407e-b0f5-6e09b7cd39d8",
-        "name": "default",
-        "created_at": "2025-10-21T19:24:34.064837+00:00"
-      }
-    ]
-  }
-}
-
-{
-  "data": {
     "createApiToken": {
-      "token": "api_lcqmhV9WAWW93muUgyILSn_CRr5Al1neqk7uEgnvAdQ",
+      "token": "your own api token",
       "api_token": {
         "id": "9177c156-467a-4492-a82b-f13841c3f841",
         "name": "My API Token",
@@ -29,3 +17,4 @@
     }
   }
 }
+
