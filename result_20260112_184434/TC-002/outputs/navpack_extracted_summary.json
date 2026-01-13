@@ -1,0 +1,46 @@
+{
+  "ending_balance": 881517.36,
+  "date_validation": {
+    "quarter_end_date_input": "2025-09-30",
+    "file_date_discovered": "2025-09-30",
+    "date_match": true,
+    "status": "MATCHED",
+    "date_source_column": "2025-09-30 00:00:00",
+    "validation_impact": "used actual ending_balance"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field": null,
+    "date_field_name": "2025-09-30 00:00:00",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-09-30"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 9,
+    "matches_found": 1,
+    "selection_reasoning": "Selected the row where the account string contains both 'Cash' and 'Custody' and legal entity matches exactly. Currency inferred from '(USD)' suffix and matches target_currency. File-level date found from header column name, matching requested quarter_end_date, so actual ending_balance used.",
+    "excluded_entries": [
+      {"account": "10130 - Investments", "reason": "account not matching target_account"},
+      {"account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "account not matching target_account"},
+      {"account": "10270 - Bank Interest Receivable", "reason": "account not matching target_account"},
+      {"account": "10310 - Other Receivables", "reason": "account not matching target_account"},
+      {"account": "20000 - Accounts Payable", "reason": "account not matching target_account"},
+      {"account": "20001 - Accounts Payable: Audit", "reason": "account not matching target_account"},
+      {"account": "20002 - Accounts Payable: Tax", "reason": "account not matching target_account"},
+      {"account": "20003 - Accounts Payable: Legal", "reason": "account not matching target_account"}
+    ],
+    "date_validation_details": {
+      "discovery_process": "Identified file date from header row (column name '2025-09-30 00:00:00')",
+      "extraction_method": "Parsed date string from column name and normalized to YYYY-MM-DD",
+      "validation_logic": "Compared extracted file_date '2025-09-30' to input quarter_end_date '2025-09-30'",
+      "final_decision": "MATCHED, use actual ending_balance"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "ending_balance": 881517.36,
+  "date_validation": {
+    "quarter_end_date_input": "2025-09-30",
+    "file_date_discovered": "2025-09-30",
+    "date_match": true,
+    "status": "MATCHED",
+    "date_source_column": "2025-09-30 00:00:00",
+    "validation_impact": "Used actual ending balance"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field": null,
+    "date_field_name": null,
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP Windsor Co-Invest, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-09-30"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 100,
+    "matches_found": 1,
+    "selection_reasoning": "Selected the only entry containing the fund name, account description with 'Custody', and USD currency tag.",
+    "excluded_entries": [
+      {"account": "10130 - Investments", "reason": "No 'Cash Custody' in account"},
+      {"account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Account not related to cash custody"},
+      {"account": "10270 - Bank Interest Receivable", "reason": "Account not related to cash custody"},
+      {"account": "10310 - Other Receivables", "reason": "Account not related to cash custody"}
+    ],
+    "date_validation_details": {
+      "discovery_process": "Identified file-level date from header row name '2025-09-30 00:00:00'",
+      "extraction_method": "Taken header name directly, converted to YYYY-MM-DD",
+      "validation_logic": "Compared file_date '2025-09-30' to requested quarter_end_date '2025-09-30'",
+      "final_decision": "MATCHED, using actual ending balance"
+    }
+  }
+}

@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>cash_custody_axon_workflow_v2.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cash-custody-axon-workflow-diagrams-v2">Cash Custody Axon Workflow Diagrams (v2)</h1>
+<h2 id="overview-two-independent-workflows">Overview: Two Independent Workflows</h2>
+<p>The cash custody reconciliation is split into <strong>two independently invokable workflows</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Workflow</th>
+<th>Purpose</th>
+<th>When to Run</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Workflow 1: Initial Check</strong></td>
+<td>Extract balances, compare, detect mismatch</td>
+<td>Every quarter for each fund</td>
+</tr>
+<tr>
+<td><strong>Workflow 2: Mismatch Analysis</strong></td>
+<td>Investigate break, identify root cause, recommend remediation</td>
+<td>Only when Workflow 1 reports a mismatch</td>
+</tr>
+</tbody>
+</table>
+<p>This design:</p>
+<ul>
+<li>Eliminates mid-workflow human input (not supported in Axon)</li>
+<li>Allows independent testing of each workflow</li>
+<li>Enables direct invocation of Workflow 2 if user already knows there's a mismatch</li>
+</ul>
+<hr>
+<h2 id="workflow-1-initial-check-matching">Workflow 1: Initial Check (Matching)</h2>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    subgraph INPUTS1["**INPUTS**"]
+        direction TB
+        I1[/"position_report<br/>(File - PDF)"/]
+        I2[/"nav_pack<br/>(File - Excel)"/]
+        I3[/"fund_name<br/>(String)"/]
+        I4[/"quarter_end_date<br/>(String)"/]
+    end
+
+    subgraph WF1["**WORKFLOW 1: INITIAL CHECK (MATCHING)**"]
+        direction TB
+        START1([Workflow Start]) --> TEAM1
+
+        subgraph T1["Team: Position Report Extraction"]
+            TEAM1[["speaker_selector<br/>document_reader<br/>data_extractor<br/>validator"]]
+        end
+
+        TEAM1 --> TEAM2
+
+        subgraph T2["Team: NAV Pack Extraction"]
+            TEAM2[["speaker_selector<br/>excel_reader<br/>data_extractor<br/>validator"]]
+        end
+
+        TEAM2 --> DEL1
+
+        subgraph D1["Delegate: Balance Comparison"]
+            DEL1["Compare balances<br/>Calculate variance"]
+        end
+
+        DEL1 --> DEL2
+
+        subgraph D2["Delegate: Generate Result"]
+            DEL2["Generate result report<br/>with match status"]
+        end
+
+        DEL2 --> DECISION{{"is_matched?"}}
+
+        DECISION -->|"Yes"| END_MATCH([MATCH])
+        DECISION -->|"No"| END_MISMATCH([MISMATCH])
+    end
+
+    subgraph OUTPUTS1["**OUTPUTS**"]
+        direction TB
+        O1[/"reconciliation_status<br/>(String)"/]
+        O2[/"is_matched<br/>(Boolean)"/]
+        O3[/"variance_amount<br/>(Float)"/]
+        O4[/"bank_cash_balance<br/>(Float)"/]
+        O5[/"nav_pack_balance<br/>(Float)"/]
+        O6[/"initial_check_report<br/>(File)"/]
+    end
+
+    INPUTS1 --> START1
+    END_MATCH --> OUTPUTS1
+    END_MISMATCH --> OUTPUTS1
+
+    classDef inputVar fill:#e3f2fd,stroke:#1565c0,stroke-width:1px
+    classDef teamStep fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef delegateStep fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef decision fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef endpointMatch fill:#c8e6c9,stroke:#2e7d32,stroke-width:2px
+    classDef endpointMismatch fill:#ffcdd2,stroke:#c62828,stroke-width:2px
+
+    class I1,I2,I3,I4,O1,O2,O3,O4,O5,O6 inputVar
+    class TEAM1,TEAM2 teamStep
+    class DEL1,DEL2 delegateStep
+    class DECISION decision
+    class END_MATCH endpointMatch
+    class END_MISMATCH endpointMismatch
+</div></code></pre>
+<hr>
+<h2 id="workflow-1-detailed-view-double-click">Workflow 1: Detailed View (Double-Click)</h2>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    START([Start])
+
+    subgraph TEAM1_DETAIL["**TEAM: Position Report Extraction**"]
+        direction LR
+        subgraph T1_DR["document_reader"]
+            T1_DR_1["read_input(position_report)"] --> T1_DR_2["Parse PDF"] --> T1_DR_3["Extract text"]
+        end
+        subgraph T1_DE["data_extractor"]
+            T1_DE_1["Search fund_name"] --> T1_DE_2["Find 'Available' field"] --> T1_DE_3["Extract value + date"]
+        end
+        subgraph T1_V["validator"]
+            T1_V_1{"Valid?"}
+            T1_V_1 -->|Yes| T1_V_2["save_variable:<br/>bank_cash_balance"]
+            T1_V_1 -->|No| T1_V_RETRY["Retry"]
+        end
+        T1_DR --> T1_DE --> T1_V
+    end
+
+    subgraph TEAM2_DETAIL["**TEAM: NAV Pack Extraction**"]
+        direction LR
+        subgraph T2_ER["excel_reader"]
+            T2_ER_1["read_input(nav_pack)"] --> T2_ER_2["Find TB sheet"] --> T2_ER_3["Read contents"]
+        end
+        subgraph T2_DE["data_extractor"]
+            T2_DE_1["Search '10010'"] --> T2_DE_2["Find Ending Balance col"] --> T2_DE_3["Extract value"]
+        end
+        subgraph T2_V["validator"]
+            T2_V_1{"Valid?"}
+            T2_V_1 -->|Yes| T2_V_2["save_variable:<br/>nav_pack_balance"]
+            T2_V_1 -->|No| T2_V_RETRY["Retry"]
+        end
+        T2_ER --> T2_DE --> T2_V
+    end
+
+    subgraph DEL1_DETAIL["**DELEGATE: Balance Comparison**"]
+        direction LR
+        DEL1_IN["bank_cash_balance<br/>nav_pack_balance"] --> DEL1_CALC["variance =<br/>bank - nav_pack"]
+        DEL1_CALC --> DEL1_CHECK{"< 0.01?"}
+        DEL1_CHECK -->|Yes| DEL1_MATCH["is_matched = True"]
+        DEL1_CHECK -->|No| DEL1_NOMATCH["is_matched = False"]
+        DEL1_MATCH --> DEL1_SAVE["save_variable()"]
+        DEL1_NOMATCH --> DEL1_SAVE
+    end
+
+    subgraph DEL2_DETAIL["**DELEGATE: Generate Result**"]
+        direction LR
+        DEL2_IN["is_matched<br/>variance_amount"] --> DEL2_CHECK{"matched?"}
+        DEL2_CHECK -->|Yes| DEL2_MSG_MATCH["MATCH"]
+        DEL2_CHECK -->|No| DEL2_MSG_NOMATCH["MISMATCH"]
+        DEL2_MSG_MATCH --> DEL2_REPORT["Generate report"]
+        DEL2_MSG_NOMATCH --> DEL2_REPORT
+        DEL2_REPORT --> DEL2_SAVE["save_variable()"]
+    end
+
+    START --> TEAM1_DETAIL
+    T1_V_2 --> TEAM2_DETAIL
+    T2_V_2 --> DEL1_DETAIL
+    DEL1_SAVE --> DEL2_DETAIL
+    DEL2_SAVE --> END_WF1([Complete])
+
+    classDef teamBox fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef delegateBox fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef agentBox fill:#fff8e1,stroke:#f57f17,stroke-width:1px
+
+    class TEAM1_DETAIL,TEAM2_DETAIL teamBox
+    class DEL1_DETAIL,DEL2_DETAIL delegateBox
+    class T1_DR,T1_DE,T1_V,T2_ER,T2_DE,T2_V agentBox
+</div></code></pre>
+<hr>
+<h2 id="workflow-2-mismatch-analysis">Workflow 2: Mismatch Analysis</h2>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    subgraph INPUTS2["**INPUTS**"]
+        direction TB
+        I2_1[/"transaction_report<br/>(File - PDF)"/]
+        I2_2[/"daily_cash_file<br/>(File - Excel)"/]
+        I2_3[/"variance_amount<br/>(Float)"/]
+        I2_4[/"fund_name<br/>(String)"/]
+        I2_5[/"quarter_end_date<br/>(String)"/]
+    end
+
+    subgraph WF2["**WORKFLOW 2: MISMATCH ANALYSIS**"]
+        direction TB
+        START2([Workflow Start]) --> TEAM3
+
+        subgraph T3["Team: Transaction Analysis"]
+            TEAM3[["speaker_selector<br/>transaction_parser<br/>cash_file_parser<br/>reconciliation_analyst<br/>root_cause_analyst"]]
+        end
+
+        TEAM3 --> DEL3
+
+        subgraph D3["Delegate: Generate Analysis Report"]
+            DEL3["Compile findings<br/>Format remediation report"]
+        end
+
+        DEL3 --> END_ANALYSIS([Analysis Complete])
+    end
+
+    subgraph OUTPUTS2["**OUTPUTS**"]
+        direction TB
+        O2_1[/"root_cause_summary<br/>(String)"/]
+        O2_2[/"missing_entries<br/>(String - JSON)"/]
+        O2_3[/"is_valid_break<br/>(Boolean)"/]
+        O2_4[/"remediation_entries<br/>(String - JSON)"/]
+        O2_5[/"analysis_report<br/>(File)"/]
+    end
+
+    INPUTS2 --> START2
+    END_ANALYSIS --> OUTPUTS2
+
+    classDef inputVar fill:#e3f2fd,stroke:#1565c0,stroke-width:1px
+    classDef teamStep fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef delegateStep fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef endpoint fill:#eceff1,stroke:#455a64,stroke-width:2px
+
+    class I2_1,I2_2,I2_3,I2_4,I2_5,O2_1,O2_2,O2_3,O2_4,O2_5 inputVar
+    class TEAM3 teamStep
+    class DEL3 delegateStep
+    class START2,END_ANALYSIS endpoint
+</div></code></pre>
+<hr>
+<h2 id="workflow-2-detailed-view-double-click">Workflow 2: Detailed View (Double-Click)</h2>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    START2([Start])
+
+    subgraph TEAM3_DETAIL["**TEAM: Transaction Analysis**"]
+        direction LR
+
+        subgraph T3_TP["transaction_parser"]
+            T3_TP_1["read_input(transaction_report)"] --> T3_TP_2["Parse PDF table"] --> T3_TP_3["Create transactions_list[]"]
+        end
+
+        subgraph T3_CFP["cash_file_parser"]
+            T3_CFP_1["read_input(daily_cash_file)"] --> T3_CFP_2["Parse Excel"] --> T3_CFP_3["Create cash_entries_list[]"]
+        end
+
+        subgraph T3_RA["reconciliation_analyst"]
+            T3_RA_1["For each bank txn:"] --> T3_RA_2{"Match in<br/>cash file?"}
+            T3_RA_2 -->|Yes| T3_RA_3["Mark MATCHED"]
+            T3_RA_2 -->|No| T3_RA_4["Add to missing_entries[]"]
+            T3_RA_3 --> T3_RA_5["Sum unmatched"]
+            T3_RA_4 --> T3_RA_5
+            T3_RA_5 --> T3_RA_6{"= variance?"}
+        end
+
+        subgraph T3_RCA["root_cause_analyst"]
+            T3_RCA_1["For each missing:"] --> T3_RCA_2{"After cut-off?"}
+            T3_RCA_2 -->|Yes| T3_RCA_3["TIMING<br/>valid_break=True"]
+            T3_RCA_2 -->|No| T3_RCA_4["MISSING_ENTRY<br/>valid_break=False"]
+            T3_RCA_3 --> T3_RCA_5["Determine txn type"]
+            T3_RCA_4 --> T3_RCA_5
+            T3_RCA_5 --> T3_RCA_6["Create remediation_entry"]
+            T3_RCA_6 --> T3_RCA_7["save_variable()"]
+        end
+
+        T3_TP --> T3_RA
+        T3_CFP --> T3_RA
+        T3_RA_6 --> T3_RCA
+    end
+
+    subgraph DEL3_DETAIL["**DELEGATE: Generate Analysis Report**"]
+        direction LR
+        DEL3_IN["root_cause_summary<br/>missing_entries<br/>remediation_entries"] --> DEL3_B1["1. Header"]
+        DEL3_B1 --> DEL3_B2["2. Root Cause Summary"]
+        DEL3_B2 --> DEL3_B3["3. Missing Entries Table"]
+        DEL3_B3 --> DEL3_B4["4. Valid Break Flag"]
+        DEL3_B4 --> DEL3_B5["5. Remediation Recommendations"]
+        DEL3_B5 --> DEL3_FORMAT["Format as Markdown"]
+        DEL3_FORMAT --> DEL3_SAVE["save_variable(analysis_report)"]
+    end
+
+    START2 --> TEAM3_DETAIL
+    T3_RCA_7 --> DEL3_DETAIL
+    DEL3_SAVE --> END_WF2([Complete])
+
+    classDef teamBox fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef delegateBox fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    classDef agentBox fill:#fff8e1,stroke:#f57f17,stroke-width:1px
+
+    class TEAM3_DETAIL teamBox
+    class DEL3_DETAIL delegateBox
+    class T3_TP,T3_CFP,T3_RA,T3_RCA agentBox
+</div></code></pre>
+<hr>
+<h2 id="combined-user-journey">Combined User Journey</h2>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart LR
+    subgraph USER["**USER ACTIONS**"]
+        direction TB
+        U1[Gather Position Report<br/>from JP Morgan] --> U2[Gather NAV Pack<br/>from Box]
+        U2 --> U3[Run Workflow 1]
+    end
+
+    subgraph WF1_SUMMARY["**WORKFLOW 1**"]
+        W1[Initial Check]
+    end
+
+    subgraph DECISION_POINT["**RESULT**"]
+        R1{Match?}
+    end
+
+    subgraph MATCH_PATH["**MATCH**"]
+        M1[Done - No action needed]
+    end
+
+    subgraph MISMATCH_PATH["**MISMATCH**"]
+        direction TB
+        MM1[Gather Transaction Report<br/>from JP Morgan] --> MM2[Gather Daily Cash File]
+        MM2 --> MM3[Run Workflow 2]
+    end
+
+    subgraph WF2_SUMMARY["**WORKFLOW 2**"]
+        W2[Mismatch Analysis]
+    end
+
+    subgraph FINAL["**OUTCOME**"]
+        F1[Review remediation report<br/>Book entries in Investran]
+    end
+
+    U3 --> W1
+    W1 --> R1
+    R1 -->|Yes| M1
+    R1 -->|No| MM1
+    MM3 --> W2
+    W2 --> F1
+
+    style M1 fill:#c8e6c9,stroke:#2e7d32
+    style F1 fill:#fff3e0,stroke:#ef6c00
+</div></code></pre>
+<hr>
+<h2 id="legend">Legend</h2>
+<table>
+<thead>
+<tr>
+<th>Shape</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parallelogram</td>
+<td>Input/Output Variables</td>
+</tr>
+<tr>
+<td>Double-bordered Rectangle</td>
+<td>Agentic Team</td>
+</tr>
+<tr>
+<td>Rectangle</td>
+<td>Delegate (Deterministic Code)</td>
+</tr>
+<tr>
+<td>Diamond</td>
+<td>Decision Point</td>
+</tr>
+<tr>
+<td>Stadium (green)</td>
+<td>Successful End (Match)</td>
+</tr>
+<tr>
+<td>Stadium (red)</td>
+<td>Mismatch End (Requires Workflow 2)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="workflow-1-step-details">Workflow 1: Step Details</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Name</th>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Position Report Extraction</td>
+<td><strong>Team</strong></td>
+<td>Parse PDF, extract cash balance for fund</td>
+</tr>
+<tr>
+<td>2</td>
+<td>NAV Pack Extraction</td>
+<td><strong>Team</strong></td>
+<td>Parse Excel, extract TB balance for account 10010</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Balance Comparison</td>
+<td><strong>Delegate</strong></td>
+<td>Compare values, calculate variance</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Generate Result</td>
+<td><strong>Delegate</strong></td>
+<td>Create status report with match/mismatch result</td>
+</tr>
+</tbody>
+</table>
+<h2 id="workflow-2-step-details">Workflow 2: Step Details</h2>
+<table>
+<thead>
+<tr>
+<th>Step</th>
+<th>Name</th>
+<th>Type</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Transaction Analysis</td>
+<td><strong>Team</strong></td>
+<td>Parse both files, compare entries, identify root cause</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Generate Analysis Report</td>
+<td><strong>Delegate</strong></td>
+<td>Compile findings into remediation report</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="variable-summary">Variable Summary</h2>
+<h3 id="workflow-1-initial-check">Workflow 1: Initial Check</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Direction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>position_report</code></td>
+<td>File</td>
+<td>Input</td>
+<td>Bank position report PDF</td>
+</tr>
+<tr>
+<td><code>nav_pack</code></td>
+<td>File</td>
+<td>Input</td>
+<td>NAV Pack Excel workbook</td>
+</tr>
+<tr>
+<td><code>fund_name</code></td>
+<td>String</td>
+<td>Input</td>
+<td>Fund to reconcile</td>
+</tr>
+<tr>
+<td><code>quarter_end_date</code></td>
+<td>String</td>
+<td>Input</td>
+<td>Quarter end date</td>
+</tr>
+<tr>
+<td><code>reconciliation_status</code></td>
+<td>String</td>
+<td>Output</td>
+<td>Human-readable status message</td>
+</tr>
+<tr>
+<td><code>is_matched</code></td>
+<td>Boolean</td>
+<td>Output</td>
+<td>True if balances match</td>
+</tr>
+<tr>
+<td><code>variance_amount</code></td>
+<td>Float</td>
+<td>Output</td>
+<td>Difference (bank - NAV Pack)</td>
+</tr>
+<tr>
+<td><code>bank_cash_balance</code></td>
+<td>Float</td>
+<td>Output</td>
+<td>Extracted bank balance</td>
+</tr>
+<tr>
+<td><code>nav_pack_balance</code></td>
+<td>Float</td>
+<td>Output</td>
+<td>Extracted NAV Pack balance</td>
+</tr>
+<tr>
+<td><code>initial_check_report</code></td>
+<td>File</td>
+<td>Output</td>
+<td>Summary report</td>
+</tr>
+</tbody>
+</table>
+<h3 id="workflow-2-mismatch-analysis">Workflow 2: Mismatch Analysis</h3>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Type</th>
+<th>Direction</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>transaction_report</code></td>
+<td>File</td>
+<td>Input</td>
+<td>Bank transaction report PDF</td>
+</tr>
+<tr>
+<td><code>daily_cash_file</code></td>
+<td>File</td>
+<td>Input</td>
+<td>Daily cash file Excel</td>
+</tr>
+<tr>
+<td><code>variance_amount</code></td>
+<td>Float</td>
+<td>Input</td>
+<td>Variance from Workflow 1</td>
+</tr>
+<tr>
+<td><code>fund_name</code></td>
+<td>String</td>
+<td>Input</td>
+<td>Fund being analyzed</td>
+</tr>
+<tr>
+<td><code>quarter_end_date</code></td>
+<td>String</td>
+<td>Input</td>
+<td>Quarter end date</td>
+</tr>
+<tr>
+<td><code>root_cause_summary</code></td>
+<td>String</td>
+<td>Output</td>
+<td>Summary of break cause</td>
+</tr>
+<tr>
+<td><code>missing_entries</code></td>
+<td>String</td>
+<td>Output</td>
+<td>JSON list of unrecorded transactions</td>
+</tr>
+<tr>
+<td><code>is_valid_break</code></td>
+<td>Boolean</td>
+<td>Output</td>
+<td>True if timing difference</td>
+</tr>
+<tr>
+<td><code>remediation_entries</code></td>
+<td>String</td>
+<td>Output</td>
+<td>JSON list of recommended entries</td>
+</tr>
+<tr>
+<td><code>analysis_report</code></td>
+<td>File</td>
+<td>Output</td>
+<td>Comprehensive analysis report</td>
+</tr>
+</tbody>
+</table>
+
+</body>
+</html>

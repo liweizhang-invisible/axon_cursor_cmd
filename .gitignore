@@ -1,0 +1,31 @@
+# Credentials and sensitive data
+.my_axon_data/mydata.json
+.my_axon_data/*.json
+
+# Generated workflow results
+workflows_list.json
+workflow_execution_result.json
+*.result.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+

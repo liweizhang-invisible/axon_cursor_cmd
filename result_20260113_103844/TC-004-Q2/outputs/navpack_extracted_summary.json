@@ -1,0 +1,46 @@
+{
+  "ending_balance": 0,
+  "date_validation": {
+    "quarter_end_date_input": "2025-06-30",
+    "file_date_discovered": "2025-09-30",
+    "date_match": false,
+    "status": "MISMATCHED",
+    "date_source_column": "2025-09-30 00:00:00",
+    "validation_impact": "File date does not match requested quarter, ending_balance set to 0"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field_name": "2025-09-30 00:00:00",
+    "date_field": "2025-09-30",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-06-30"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 9,
+    "matches_found": 1,
+    "selection_reasoning": "Identified one entry where Legal Entity matches, Account contains 'Cash Custody' and USD, selected this entry.",
+    "excluded_entries": [
+      {"account": "10130 - Investments", "reason": "Account is Investments, not Cash Custody"},
+      {"account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Different account"},
+      {"account": "10270 - Bank Interest Receivable", "reason": "Different account"},
+      {"account": "10310 - Other Receivables", "reason": "Different account"},
+      {"account": "20000 - Accounts Payable", "reason": "Different account"},
+      {"account": "20001 - Accounts Payable: Audit", "reason": "Different account"},
+      {"account": "20002 - Accounts Payable: Tax", "reason": "Different account"},
+      {"account": "20003 - Accounts Payable: Legal", "reason": "Different account"}
+    ],
+    "date_validation_details": {
+      "discovery_process": "Detected '2025-09-30 00:00:00' as header column representing file date for the sheet.",
+      "extraction_method": "Parsed the column header to obtain date in YYYY-MM-DD format.",
+      "validation_logic": "Compared file_date 2025-09-30 to requested 2025-06-30.",
+      "final_decision": "Dates mismatched, applied conservative rule to set ending_balance to 0."
+    }
+  }
+}

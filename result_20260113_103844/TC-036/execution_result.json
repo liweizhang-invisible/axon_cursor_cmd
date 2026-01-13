@@ -1,0 +1,58 @@
+{
+  "test_case_id": "TC-036",
+  "test_case_title": "Currency Code Validation",
+  "timestamp": "2026-01-13T10:39:49.323574",
+  "success": false,
+  "execution_id": "06966675-d082-7b78-8000-88abea840f95",
+  "status": "Running",
+  "error": null,
+  "trigger_result": {
+    "success": true,
+    "execution_id": "06966675-d082-7b78-8000-88abea840f95",
+    "workflow_name": "Apollo - Cash Custody Initial Check V1",
+    "namespace": "default",
+    "setup_info": {
+      "namespace_id": "5320e9e9-eb2e-488e-bb2f-7d3e2b731bfc",
+      "flow_id": "0f2b923a-88fd-482d-8019-451232ae5192",
+      "flow_version_id": "2d11aa14-1afd-41ba-bed1-099067c294b2",
+      "inputs": [
+        {
+          "stepId": "86df967a-2f92-4fa2-b02a-cedd57bdfedf",
+          "name": "position_report_file",
+          "type": "File",
+          "direction": "Input"
+        },
+        {
+          "stepId": "86df967a-2f92-4fa2-b02a-cedd57bdfedf",
+          "name": "fund_name",
+          "type": "String",
+          "direction": "Input"
+        },
+        {
+          "stepId": "86df967a-2f92-4fa2-b02a-cedd57bdfedf",
+          "name": "quarter_end_date",
+          "type": "String",
+          "direction": "Input"
+        },
+        {
+          "stepId": "5cf6f5da-dfc9-413e-8c98-a1dd12f840da",
+          "name": "navpack_file",
+          "type": "File",
+          "direction": "Input"
+        },
+        {
+          "stepId": "5cf6f5da-dfc9-413e-8c98-a1dd12f840da",
+          "name": "fund_name",
+          "type": "String",
+          "direction": "Input"
+        },
+        {
+          "stepId": "5cf6f5da-dfc9-413e-8c98-a1dd12f840da",
+          "name": "quarter_end_date",
+          "type": "String",
+          "direction": "Input"
+        }
+      ]
+    }
+  }
+}

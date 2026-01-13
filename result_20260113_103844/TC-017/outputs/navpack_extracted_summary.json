@@ -1,0 +1,45 @@
+{
+  "ending_balance": 0,
+  "date_validation": {
+    "quarter_end_date_input": "2025-03-31",
+    "file_date_discovered": "2025-09-30",
+    "date_match": false,
+    "status": "MISMATCHED",
+    "date_source_column": "header row column labeled '2025-09-30 00:00:00'",
+    "validation_impact": "ending_balance set to 0 due to mismatch"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field": null,
+    "date_field_name": "n/a (header-level date used)",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-03-31"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 8,
+    "matches_found": 1,
+    "selection_reasoning": "Selected the only entry where Legal Entity matches 'AP Windsor Co-Invest, L.P.', Account contains 'Cash Custody' and currency 'USD'.",
+    "excluded_entries": [
+      { "account": "10130 - Investments", "reason": "Account not Cash Custody" },
+      { "account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Account not Cash Custody" },
+      { "account": "10270 - Bank Interest Receivable", "reason": "Account not Cash Custody" },
+      { "account": "10310 - Other Receivables", "reason": "Account not Cash Custody" },
+      { "account": "20000 - Accounts Payable", "reason": "Account not Cash Custody" },
+      { "account": "20001 - Accounts Payable: Audit", "reason": "Account not Cash Custody" },
+      { "account": "20002 - Accounts Payable: Tax", "reason": "Account not Cash Custody" }
+    ],
+    "date_validation_details": {
+      "discovery_process": "Identified header-level date from sheet by finding column header matching 'YYYY-MM-DD HH:MM:SS' pattern",
+      "extraction_method": "Parsed the column header '2025-09-30 00:00:00' and converted to '2025-09-30'",
+      "validation_logic": "Compared file_date_discovered '2025-09-30' to requested '2025-03-31'",
+      "final_decision": "Dates do not match, therefore set ending_balance to 0"
+    }
+  }
+}

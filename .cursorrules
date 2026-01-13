@@ -1,0 +1,123 @@
+# Cursor Rules for Axon Workflow Commands
+
+## Priority: Check These Files First
+
+1. **ALWAYS check `command.md` first** when user requests to run a command or execute an action
+2. **For test code generation**, ALWAYS reference `skills/trigger_workflow/trigger_workflow.py` as the example pattern
+
+## Workflow Commands
+
+This project supports specific workflow commands that should be executed through the skills system.
+All commands must start with a colon `:`:
+
+1. **:get_all_workflow** - Lists all workflows in specified namespaces
+2. **:trigger_workflow** - Triggers/executes a workflow and retrieves results
+
+## Command Execution Rules
+
+- All commands must start with a colon `:` (e.g., `:get_all_workflow`, `:trigger_workflow`)
+- Before executing any workflow-related command, check `command.md` for the exact command syntax
+- Use the Python skills modules in the `skills/` directory to execute commands
+- Always load credentials from `.my_axon_data/mydata.json` (never hardcode credentials)
+- Handle errors gracefully and provide clear feedback to the user
+
+## Test Code Generation Rules
+
+**CRITICAL: When generating test code or test cases, ALWAYS follow the pattern in `skills/trigger_workflow/trigger_workflow.py`**
+
+### Default Output Folder Naming:
+
+- **Default folder name pattern**: `testcases_YYYYMMDD_HHMMSS` (e.g., `testcases_20240115_143022`)
+- Use timestamp format: `YYYYMMDD_HHMMSS` (year, month, day, hour, minute, second)
+- Generate timestamp using: `datetime.now().strftime("%Y%m%d_%H%M%S")`
+- Example: `testcases_20240115_143022/`
+
+### Required Patterns to Follow:
+
+1. **Import Structure:**
+   ```python
+   import sys
+   from pathlib import Path
+   
+   # Import shared modules from parent
+   parent_dir = Path(__file__).parent.parent
+   if str(parent_dir.parent) not in sys.path:
+       sys.path.insert(0, str(parent_dir.parent))
+   
+   from skills.trigger_workflow.trigger_workflow import trigger_workflow
+   ```
+
+2. **Function Signature Pattern:**
+   - Use `trigger_workflow()` function with proper parameters
+   - Follow the same error handling pattern
+   - Use the same return dictionary structure
+
+3. **Output Format:**
+   - Use the same print formatting with `"=" * 70` separators
+   - Use emoji indicators (🚀, ✅, ❌, etc.) for status
+   - Provide clear progress messages
+
+4. **Error Handling:**
+   - Wrap in try/except blocks
+   - Return dictionary with `success` key
+   - Provide detailed error messages
+
+5. **File Path Handling:**
+   - Use `Path` from `pathlib` for all file operations
+   - Handle both relative and absolute paths
+   - Check `input_data/` directory for test files (like `find_files_in_input_data` function)
+
+### Example Test Code Structure:
+
+```python
+from datetime import datetime
+from pathlib import Path
+
+# Generate default output folder with timestamp
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+output_dir = Path(f"testcases_{timestamp}")
+
+def run_test():
+    """Execute test case."""
+    test_case_id = "TC-001"
+    
+    # Test data
+    workflow_inputs = {
+        "param1": "value1",
+        "param2": "value2"
+    }
+    
+    print(f"🚀 Executing {test_case_id}")
+    
+    # Execute workflow
+    result = trigger_workflow(
+        workflow_name="WorkflowName",
+        namespace="default",
+        monitor=True,
+        **workflow_inputs
+    )
+    
+    # Validate results
+    if result.get("success"):
+        print(f"✅ {test_case_id} PASSED")
+        return True
+    else:
+        print(f"❌ {test_case_id} FAILED: {result.get('error')}")
+        return False
+```
+
+## File Structure
+
+- `skills/` - Contains all workflow execution skills
+  - `trigger_workflow/trigger_workflow.py` - **Reference implementation for test code generation**
+- `command.md` - Documents all supported commands and their usage
+- `.my_axon_data/mydata.json` - Contains API credentials (gitignored)
+- `input_data/` - Contains test data files
+
+## Important
+
+- Never commit credentials or sensitive data
+- Always validate user input before executing workflows
+- Provide clear status messages during command execution
+- **When generating test code, always check `trigger_workflow.py` first to match the pattern**
+

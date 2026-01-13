@@ -1,0 +1,32 @@
+{
+  "available_value": 941754.36,
+  "usd_entries": [
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "USD",
+      "Cash Account Number": 41472558,
+      "Security Name": "US DOLLAR",
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Last Update Date": "2025-09-30",
+      "Available": 941754.36,
+      "Cash Account Name": "USD",
+      "Branch Code": 671,
+      "Branch Name": "JPMCBNALB",
+      "DGSD Eligible": "N"
+    }
+  ],
+  "non_usd_entries_excluded": [],
+  "filter_details": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "quarter_end_date": "2025-09-30",
+    "skip_rows": "auto"
+  },
+  "ai_analysis": {
+    "currency_filtering": "USD only (explicit USD or empty/default)",
+    "usd_entries_count": 1,
+    "non_usd_entries_count": 0,
+    "available_column_values": [941754.36],
+    "aggregation": "sum of all USD Available values",
+    "reasoning": "Single USD entry; available_value equals the single entry's Available"
+  }
+}

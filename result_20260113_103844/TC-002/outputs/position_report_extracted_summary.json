@@ -1,0 +1,41 @@
+{
+  "available_value": 881517.36,
+  "usd_entries": [
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "USD",
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Last Update Date": "2025-09-30",
+      "Available": 881517.36
+    }
+  ],
+  "non_usd_entries_excluded": [
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "EUR",
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Last Update Date": "2025-09-30",
+      "Available": 500000.0
+    },
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "GBP",
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Last Update Date": "2025-09-30",
+      "Available": 25000.0
+    }
+  ],
+  "filter_details": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "quarter_end_date": "2025-09-30",
+    "skip_rows": "auto"
+  },
+  "ai_analysis": {
+    "currency_filtering": "USD only (explicit USD or empty/default)",
+    "usd_entries_count": 1,
+    "non_usd_entries_count": 2,
+    "available_column_values": [881517.36],
+    "aggregation": "sum of all USD Available values",
+    "reasoning": "Filtered raw entries for the specified fund and date, excluded non-USD entries (EUR and GBP), extracted the Available column from the single USD entry, and summed to produce the final available_value."
+  }
+}

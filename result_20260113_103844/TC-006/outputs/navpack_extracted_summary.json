@@ -1,0 +1,46 @@
+{
+  "ending_balance": 881517.36,
+  "date_validation": {
+    "quarter_end_date_input": "2025-09-30",
+    "file_date_discovered": "2025-09-30",
+    "date_match": true,
+    "status": "MATCHED",
+    "date_source_column": "Sheet header (column with header '2025-09-30 00:00:00')",
+    "validation_impact": "Date matches requested quarter_end_date; using actual ending balance"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field": null,
+    "date_field_name": "Sheet header",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-09-30"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 9,
+    "matches_found": 1,
+    "selection_reasoning": "Filtered entries for legal entity 'AP Windsor Co-Invest, L.P.', account names containing 'Cash' and 'Custody', and currency 'USD' inferred from '(USD)'. One entry matched: '10010 - Cash - Chase Custody (USD)'.",
+    "excluded_entries": [
+      { "account": "10130 - Investments", "reason": "Account not related to Cash Custody" },
+      { "account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Account not related to Cash Custody" },
+      { "account": "10270 - Bank Interest Receivable", "reason": "Account not Cash Custody" },
+      { "account": "10310 - Other Receivables", "reason": "Account not Cash Custody" },
+      { "account": "20000 - Accounts Payable", "reason": "Account not Cash Custody" },
+      { "account": "20001 - Accounts Payable: Audit", "reason": "Account not Cash Custody" },
+      { "account": "20002 - Accounts Payable: Tax", "reason": "Account not Cash Custody" },
+      { "account": "20003 - Accounts Payable: Legal", "reason": "Account not Cash Custody" }
+    ],
+    "date_validation_details": {
+      "discovery_process": "Identified sheet-level date in header row with column header '2025-09-30 00:00:00'.",
+      "extraction_method": "Read header string and converted to ISO date format.",
+      "validation_logic": "Compared extracted date '2025-09-30' to requested quarter_end_date '2025-09-30'.",
+      "final_decision": "Dates match; using actual ending balance."
+    }
+  }
+}

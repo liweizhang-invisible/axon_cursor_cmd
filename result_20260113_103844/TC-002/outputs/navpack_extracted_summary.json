@@ -1,0 +1,45 @@
+{
+  "ending_balance": 881517.36,
+  "date_validation": {
+    "quarter_end_date_input": "2025-09-30",
+    "file_date_discovered": "2025-09-30",
+    "date_match": true,
+    "status": "MATCHED",
+    "date_source_column": "2025-09-30 00:00:00",
+    "validation_impact": "No impact, file date matches requested quarter end date"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field_name": "2025-09-30 00:00:00",
+    "date_field_value": "",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-09-30"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 100,
+    "matches_found": 1,
+    "selection_reasoning": "First entry matches all criteria: legal entity equals target, account contains 'Cash Custody' and currency 'USD' inferred from '(USD)' in account string.",
+    "excluded_entries": [
+      {"account": "10130 - Investments", "reason": "Account does not contain 'Cash Custody'"},
+      {"account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Account does not contain 'Cash Custody'"},
+      {"account": "10270 - Bank Interest Receivable", "reason": "Account does not contain 'Cash Custody'"},
+      {"account": "10310 - Other Receivables", "reason": "Account does not contain 'Cash Custody'"},
+      {"account": "20000 - Accounts Payable", "reason": "Account does not contain 'Cash Custody'"},
+      {"account": "20001 - Accounts Payable: Audit", "reason": "Account does not contain 'Cash Custody'"},
+      {"account": "20002 - Accounts Payable: Tax", "reason": "Account does not contain 'Cash Custody'"},
+      {"account": "20003 - Accounts Payable: Legal", "reason": "Account does not contain 'Cash Custody'"}
+    ],
+    "date_validation_details": {
+      "discovery_process": "Identified date column by header name containing a date pattern 'YYYY-MM-DD'. Column name '2025-09-30 00:00:00' used as file_date.",
+      "extraction_method": "Used column header since cell values blank; header indicates date.",
+      "validation_logic": "Compared file_date '2025-09-30' to requested quarter_end_date '2025-09-30'.",
+      "final_decision": "MATCHED: use actual ending_balance."
+    }
+  }

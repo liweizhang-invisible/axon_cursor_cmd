@@ -1,0 +1,45 @@
+{
+  "available_value": 881517.36,
+  "usd_entries": [
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "USD",
+      "Cash Account Number": 41472558,
+      "Security Name": "US DOLLAR",
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Linked Custody Account": "FFK30",
+      "Cash Account Name": "USD",
+      "Last Update Date": "2025-09-30",
+      "Available": 500000.0,
+      "Branch Code": 671,
+      "Branch Name": "JPMCBNALB"
+    },
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "USD",
+      "Cash Account Number": 41472559,
+      "Security Name": "US DOLLAR",
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Linked Custody Account": "FFK30-ALT",
+      "Cash Account Name": "USD",
+      "Last Update Date": "2025-09-30",
+      "Available": 381517.36,
+      "Branch Code": 671,
+      "Branch Name": "JPMCBNALB"
+    }
+  ],
+  "non_usd_entries_excluded": [],
+  "filter_details": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "quarter_end_date": "2025-09-30",
+    "skip_rows": "auto"
+  },
+  "ai_analysis": {
+    "currency_filtering": "USD only (explicit USD or empty/default)",
+    "usd_entries_count": 2,
+    "non_usd_entries_count": 0,
+    "available_column_values": [500000.0, 381517.36],
+    "aggregation": "sum of all USD Available values",
+    "reasoning": "Two USD entries found for fund and date. Both entries are USD. Their Available values [500000.0, 381517.36] are summed to 881517.36."
+  }
+}

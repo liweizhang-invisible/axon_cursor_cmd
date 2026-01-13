@@ -1,0 +1,47 @@
+{
+  "available_value": 881517.36,
+  "usd_entries": [
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "USD",
+      "Cash Account Number": 41472558,
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Last Update Date": "2025-09-30",
+      "Available": 881517.36,
+      "Branch Code": 671,
+      "Branch Name": "JPMCBNALB",
+      "DGSD Eligible": "N"
+    }
+  ],
+  "non_usd_entries_excluded": [
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "EUR",
+      "Cash Account Number": 41472559,
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Last Update Date": "2025-09-30",
+      "Available": 500000.0
+    },
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "GBP",
+      "Cash Account Number": 41472560,
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Last Update Date": "2025-09-30",
+      "Available": 25000.0
+    }
+  ],
+  "filter_details": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "quarter_end_date": "2025-09-30",
+    "skip_rows": "auto"
+  },
+  "ai_analysis": {
+    "currency_filtering": "USD only (explicit USD or empty/default)",
+    "usd_entries_count": 1,
+    "non_usd_entries_count": 2,
+    "available_column_values": [881517.36],
+    "aggregation": "sum of all USD Available values",
+    "reasoning": "Filtered raw entries by currency to keep only USD entries. Of three entries (USD, EUR, GBP), only the USD entry was retained. Single retained USD entry yields the available value directly."
+  }
+}

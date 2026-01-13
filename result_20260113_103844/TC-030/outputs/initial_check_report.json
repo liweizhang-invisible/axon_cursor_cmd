@@ -1,0 +1,7 @@
+{
+  "reconciliation_status": "VARIANCE_DETECTED",
+  "is_matched": false,
+  "variance_amount": -10000.0,
+  "bank_cash_balance": 891517.36,
+  "nav_pack_balance": 881517.36
+}

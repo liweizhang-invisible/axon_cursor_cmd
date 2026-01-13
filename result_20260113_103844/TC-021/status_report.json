@@ -1,0 +1,17 @@
+{
+  "success": true,
+  "execution_id": "06966674-a981-7539-8000-0417c7633976",
+  "status": "Running",
+  "start_time": "2026-01-13T15:39:54.595319+00:00",
+  "end_time": null,
+  "token_usage": 0.0,
+  "steps": [
+    {
+      "id": "06966675-0d55-7d55-8000-3b4ae8eb198a",
+      "result": "Running",
+      "entity_type": "Team",
+      "failure_reason": null,
+      "failure_detail": null
+    }
+  ]
+}

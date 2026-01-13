@@ -1,0 +1,6 @@
+"Positions "
+"As Of Date: Multiple Quarter-End Dates (Filter by Last Update Date) - EDGE CASES - TC-041 Zero Balance"
+"Run ID: TEST-EDGE-CASES-TC041"
+"Account Number","Cash Account CCY Code","Cash Account Number","Security Name","Location/Nominee Code","Reg./Sub Acct Code","Account Name","Linked Custody Account","Cash Account Name","Last Update Date","Asset Type Description","Asset Category Description","Security ID","ISIN","Ticker","Coupon Rate","Dated Date","Maturity Date","Pool Number","Opening Units(Cash)","Awaiting Receipt","Awaiting Delivery","In Transit (US)","At Registrar (Glbl)","On Loan","Pledged (US)","Available","Settled Units","Current Face (Settled)","Total Units","Current Face (Total)","Nominal Value","Blocked Quantity","Factor","Factor Date","Previous Factor","Country Code","Country Description","Location Nominee Name","Reg./Sub Acct Name","Collateral Units","Borrowed Units","Sub Account Type Description","Location/Nominee Country Code","Location/Nominee Country Name","OCC ID","S and P CUSIP","Public CUSIP","Branch Code","Branch Name","DGSD Eligible"
+"S 18088","USD","41472558","US DOLLAR","","","AP WINDSOR CO-INVEST, L.P.","FFK30","USD","2025-09-30","CASH","CASH","CASHUSD","","","","","","","0.0000000","","","","","","","0.0000000","0.0000000","","0.0000000","","","","","","","","","","","","","","","","","","","671","JPMCBNALB","N"
+

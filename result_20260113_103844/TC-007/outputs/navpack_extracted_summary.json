@@ -1,0 +1,46 @@
+{
+  "ending_balance": 881517.36,
+  "date_validation": {
+    "quarter_end_date_input": "2025-09-30",
+    "file_date_discovered": "2025-09-30",
+    "date_match": true,
+    "status": "MATCHED",
+    "date_source_column": "sheet-level header date",
+    "validation_impact": "used actual ending balance"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field": "2025-09-30",
+    "date_field_name": "sheet-level header date",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-09-30"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 8,
+    "matches_found": 1,
+    "selection_reasoning": "Matched entry by Legal Entity containing 'AP Windsor Co-Invest, L.P.', Account containing 'Cash Custody', and inferred Currency 'USD'. Date validation used sheet-level header date.",
+    "excluded_entries": [
+      {"account": "10130 - Investments", "reason": "Account not Cash Custody"},
+      {"account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Account not Cash Custody"},
+      {"account": "10270 - Bank Interest Receivable", "reason": "Account not Cash Custody"},
+      {"account": "10310 - Other Receivables", "reason": "Account not Cash Custody"},
+      {"account": "20000 - Accounts Payable", "reason": "Account not Cash Custody"},
+      {"account": "20001 - Accounts Payable: Audit", "reason": "Account not Cash Custody"},
+      {"account": "20002 - Accounts Payable: Tax", "reason": "Account not Cash Custody"},
+      {"account": "20003 - Accounts Payable: Legal", "reason": "Account not Cash Custody"}
+    ],
+    "date_validation_details": {
+      "discovery_process": "Observed first header row cell 10 '2025-09-30 00:00:00' as sheet-level file date.",
+      "extraction_method": "Parsed header string and converted to YYYY-MM-DD.",
+      "validation_logic": "Compared extracted file date to requested quarter_end_date.",
+      "final_decision": "Date MATCHED, used actual ending balance."
+    }
+  }
+}

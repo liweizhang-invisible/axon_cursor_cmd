@@ -1,0 +1,45 @@
+{
+  "ending_balance": 0,
+  "date_validation": {
+    "quarter_end_date_input": "2025-12-31",
+    "file_date_discovered": "2025-09-30",
+    "date_match": false,
+    "status": "MISMATCHED",
+    "date_source_column": "header row: '2025-09-30 00:00:00'",
+    "validation_impact": "ending_balance set to 0 due to date mismatch"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field": null,
+    "date_field_name": "GL Date from header",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-12-31"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 8,
+    "matches_found": 1,
+    "selection_reasoning": "Matched entry has legal entity 'AP Windsor Co-Invest, L.P.' and account contains 'Cash Custody' with currency USD. Other entries did not meet all criteria.",
+    "excluded_entries": [
+      { "account": "10130 - Investments", "reason": "Account does not contain 'Cash Custody'" },
+      { "account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Account does not contain 'Cash Custody'" },
+      { "account": "10270 - Bank Interest Receivable", "reason": "Account does not contain 'Cash Custody'" },
+      { "account": "10310 - Other Receivables", "reason": "Account does not contain 'Cash Custody'" },
+      { "account": "20000 - Accounts Payable", "reason": "Account does not contain 'Cash Custody'" },
+      { "account": "20001 - Accounts Payable: Audit", "reason": "Account does not contain 'Cash Custody'" },
+      { "account": "20002 - Accounts Payable: Tax", "reason": "Account does not contain 'Cash Custody'" }
+    ],
+    "date_validation_details": {
+      "discovery_process": "Detected date from header row cell containing '2025-09-30 00:00:00'",
+      "extraction_method": "Extracted header label and parsed to '2025-09-30'",
+      "validation_logic": "Compared extracted file date '2025-09-30' with requested quarter_end_date '2025-12-31'.",
+      "final_decision": "File date does not match requested quarter_end_date; ending_balance set to 0."
+    }
+  }
+}

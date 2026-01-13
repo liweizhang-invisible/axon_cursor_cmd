@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-01-12T19:07:44.071089",
+  "result_dir": "/Users/liwei/invisible_code/axon_cursor_cmd/result_20260112_190323",
+  "total_tests": 3,
+  "summary": {
+    "completed": 3,
+    "failed": 0,
+    "running": 0,
+    "error": 0,
+    "cancelled": 0
+  },
+  "results": [
+    {
+      "test_case_id": "TC-001",
+      "test_case_title": "Successful Balance Match Between Bank Statement and NAV Pack",
+      "timestamp": "2026-01-12T19:03:23.326357",
+      "success": true,
+      "execution_id": "069658be-334d-7083-8000-1d8cbe3e62dc",
+      "status": "Completed",
+      "error": null,
+      "status_details": {
+        "status": "Completed",
+        "start_time": "2026-01-13T00:03:47.207615+00:00",
+        "end_time": "2026-01-13T00:07:56.941766+00:00",
+        "token_usage": 107761.0
+      }
+    },
+    {
+      "test_case_id": "TC-002",
+      "test_case_title": "Multi-Currency Filter Test",
+      "timestamp": "2026-01-12T19:03:26.000728",
+      "success": true,
+      "execution_id": "069658be-58ad-7cfd-8000-10ad3be57555",
+      "status": "Completed",
+      "error": null,
+      "status_details": {
+        "status": "Completed",
+        "start_time": "2026-01-13T00:03:49.544359+00:00",
+        "end_time": "2026-01-13T00:07:50.531446+00:00",
+        "token_usage": 106317.0
+      }
+    },
+    {
+      "test_case_id": "TC-005",
+      "test_case_title": "Mismatch Detection - Missing Expense Transaction",
+      "timestamp": "2026-01-12T19:03:28.333218",
+      "success": true,
+      "execution_id": "069658be-7bf7-7a8a-8000-128db5fb32ea",
+      "status": "Completed",
+      "error": null,
+      "status_details": {
+        "status": "Completed",
+        "start_time": "2026-01-13T00:03:51.749752+00:00",
+        "end_time": "2026-01-13T00:07:55.579813+00:00",
+        "token_usage": 98245.0
+      }
+    }
+  ]
+}

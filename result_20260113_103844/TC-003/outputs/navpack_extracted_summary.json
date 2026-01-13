@@ -1,0 +1,46 @@
+{
+  "ending_balance": 881517.36,
+  "date_validation": {
+    "quarter_end_date_input": "2025-09-30",
+    "file_date_discovered": "2025-09-30",
+    "date_match": true,
+    "status": "MATCHED",
+    "date_source_column": "2025-09-30 00:00:00",
+    "validation_impact": "Ending balance retained"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field": "2025-09-30 00:00:00",
+    "date_field_name": "2025-09-30 00:00:00",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-09-30"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 8,
+    "matches_found": 1,
+    "selection_reasoning": "Matched the only entry with account containing 'Cash Custody' and parsed currency 'USD' from account string.",
+    "excluded_entries": [
+      {"account": "10130 - Investments", "reason": "Account not related to Cash Custody."},
+      {"account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Account not related to Cash Custody."},
+      {"account": "10270 - Bank Interest Receivable", "reason": "Account not related to Cash Custody or zero balance."},
+      {"account": "10310 - Other Receivables", "reason": "Account not related to Cash Custody."},
+      {"account": "20000 - Accounts Payable", "reason": "Liability account, not Cash."},
+      {"account": "20001 - Accounts Payable: Audit", "reason": "Not Cash Custody."},
+      {"account": "20002 - Accounts Payable: Tax", "reason": "Not Cash Custody."},
+      {"account": "20003 - Accounts Payable: Legal", "reason": "Not Cash Custody."}
+    ],
+    "date_validation_details": {
+      "discovery_process": "Identified the dynamic date column header '2025-09-30 00:00:00' corresponding to GLDate placeholder in 'Ending Balance @ #GLDate#'.",
+      "extraction_method": "Parsed the column name '2025-09-30 00:00:00' and converted to '2025-09-30'.",
+      "validation_logic": "Compared file date '2025-09-30' to requested quarter_end_date '2025-09-30' and found a match.",
+      "final_decision": "Date matched; retained actual ending balance of 881517.36."
+    }
+  }
+}

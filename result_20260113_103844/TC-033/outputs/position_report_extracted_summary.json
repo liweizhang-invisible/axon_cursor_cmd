@@ -1,0 +1,40 @@
+{
+  "available_value": 881517.36,
+  "usd_entries": [
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "USD",
+      "Cash Account Number": 41472558,
+      "Security Name": "US DOLLAR",
+      "Location/Nominee Code": null,
+      "Reg./Sub Acct Code": null,
+      "Account Name": "AP WINDSOR CO-INVEST, L.P.",
+      "Linked Custody Account": "FFK30",
+      "Cash Account Name": "USD",
+      "Last Update Date": "2025-09-30",
+      "Asset Type Description": "CASH",
+      "Asset Category Description": "CASH",
+      "Security ID": "CASHUSD",
+      "Available": 881517.36,
+      "Settled Units": 881517.36,
+      "Total Units": 881517.36,
+      "Branch Code": 671,
+      "Branch Name": "JPMCBNALB",
+      "DGSD Eligible": "N"
+    }
+  ],
+  "non_usd_entries_excluded": [],
+  "filter_details": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "quarter_end_date": "2025-09-30",
+    "skip_rows": "auto"
+  },
+  "ai_analysis": {
+    "currency_filtering": "Only entries with Cash Account CCY Code = 'USD' were included. Empty or null currency would also be treated as USD. ",
+    "usd_entries_count": 1,
+    "non_usd_entries_count": 0,
+    "available_column_values": [881517.36],
+    "aggregation": "Sum of all USD 'Available' values",
+    "reasoning": "Only one USD entry was found after applying fuzzy fund match and exact date filter. Its 'Available' value was taken as the total."
+  }
+}

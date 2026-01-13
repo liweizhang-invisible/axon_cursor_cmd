@@ -1,0 +1,25 @@
+{
+  "available_value": 981517.36,
+  "usd_entries": [
+    {
+      "Account Number": "S 18088",
+      "Cash Account CCY Code": "USD",
+      "Available": 981517.36,
+      "Last Update Date": "2025-09-30"
+    }
+  ],
+  "non_usd_entries_excluded": [],
+  "filter_details": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "quarter_end_date": "2025-09-30",
+    "skip_rows": "auto"
+  },
+  "ai_analysis": {
+    "currency_filtering": "USD only (explicit 'USD' or default/empty)",
+    "usd_entries_count": 1,
+    "non_usd_entries_count": 0,
+    "available_column_values": [981517.36],
+    "aggregation": "sum of all USD Available values",
+    "reasoning": "Corrected date filter to exact quarter end 2025-09-30; single USD entry yields available_value of 981517.36."
+  }
+}

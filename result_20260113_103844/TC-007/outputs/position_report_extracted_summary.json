@@ -1,0 +1,16 @@
+{
+  "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+  "quarter_end_date": "2025-09-30",
+  "currency": "USD",
+  "entries": [
+    {
+      "Account Number": "S 18088",
+      "Available": 966517.36,
+      "Last Update Date": "2025-09-30",
+      "Cash Account CCY Code": "USD"
+    }
+  ],
+  "available_value": 966517.36,
+  "entry_count": 1,
+  "ai_analysis": "Filtered for exact Account Name match and date; only USD entries considered; summed 'Available'."
+}

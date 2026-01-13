@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "execution_id": "06966672-260f-7a11-8000-f61610e4cf5a",
+  "status": "Completed",
+  "start_time": "2026-01-13T15:39:14.380348+00:00",
+  "end_time": "2026-01-13T15:46:40.269035+00:00",
+  "token_usage": 190808.0,
+  "steps": [
+    {
+      "id": "06966672-88ba-7ae0-8000-6f2e6bd5d6ad",
+      "result": "Complete",
+      "entity_type": "Team",
+      "failure_reason": null,
+      "failure_detail": null
+    },
+    {
+      "id": "06966684-d5a7-70cf-8000-f1b03ea6bf85",
+      "result": "Complete",
+      "entity_type": "Team",
+      "failure_reason": null,
+      "failure_detail": null
+    },
+    {
+      "id": "0696668d-b129-776b-8000-b9f95c12fb79",
+      "result": "Complete",
+      "entity_type": "Delegate",
+      "failure_reason": null,
+      "failure_detail": null
+    },
+    {
+      "id": "0696668d-d82d-7588-8000-0020424fc473",
+      "result": "Complete",
+      "entity_type": "Delegate",
+      "failure_reason": null,
+      "failure_detail": null
+    }
+  ]
+}

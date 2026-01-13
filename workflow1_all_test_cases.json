@@ -1,0 +1,334 @@
+{
+  "test_cases": [
+    {
+      "test_id": "TC-001",
+      "title": "Happy Path - Balance Match",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-002",
+      "title": "Multiple Currency Accounts - USD Only Processing",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-003",
+      "title": "Single Bank Account",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-004-Q1",
+      "title": "All Quarters Validation - Q1",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-03-31",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-004-Q2",
+      "title": "All Quarters Validation - Q2",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-06-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-004-Q3",
+      "title": "All Quarters Validation - Q3",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-004-Q4",
+      "title": "All Quarters Validation - Q4",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-12-31",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-005",
+      "title": "Mismatch - Missing $60,237 Expense",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-Mismatch.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-006",
+      "title": "Mismatch - Missing $25,000 Income",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-Mismatch-TC006.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-007",
+      "title": "Mismatch - Multiple Missing Transactions",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-Mismatch-TC007.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-008",
+      "title": "Mismatch - Exact Transaction Match",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-Mismatch.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-009",
+      "title": "Mismatch - Sum of Transactions",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-Mismatch-TC009.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-010",
+      "title": "Valid Break - Post Cut-Off",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-010A",
+      "title": "Valid Break - Cut-Off Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-011",
+      "title": "Valid Break - Next Day Statement",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-012",
+      "title": "Valid Break - Multiple Post Cut-Off",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-017",
+      "title": "Q1 Data Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-03-31",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-018",
+      "title": "Q2 Data Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-06-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-019",
+      "title": "Q3 Data Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-020",
+      "title": "Q4 Data Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-12-31",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-021",
+      "title": "Quarter-End Date Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-027",
+      "title": "Multiple Bank Accounts",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-MultiBank.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-028",
+      "title": "Multiple Bank Portals",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-MultiBank.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-029",
+      "title": "Aggregate Balances",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-MultiBank.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-030",
+      "title": "Unknown Transaction",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-Exception.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-033",
+      "title": "Bank Correction",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report-Exception-Corrected.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-034",
+      "title": "Position Report Date Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-035",
+      "title": "Fund Name Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-036",
+      "title": "Currency Code Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-037",
+      "title": "Account Number Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-038",
+      "title": "Quarter Selection Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-039",
+      "title": "Year Selection Validation",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    },
+    {
+      "test_id": "TC-040",
+      "title": "Quarter Consistency",
+      "workflow_name": "Apollo - Cash Custody Initial Check V1",
+      "namespace": "default",
+      "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+      "quarter_end_date": "2025-09-30",
+      "position_report_file": "test_cases_and_testing_data/test_data/Test-Data-Position-Report.csv",
+      "navpack_file": "input_data/AP Windsor - NAV Pack.xlsm"
+    }
+  ]
+}

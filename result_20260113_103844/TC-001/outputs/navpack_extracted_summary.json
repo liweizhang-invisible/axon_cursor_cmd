@@ -1,0 +1,46 @@
+{
+  "ending_balance": 881517.36,
+  "date_validation": {
+    "quarter_end_date_input": "2025-09-30",
+    "file_date_discovered": "2025-09-30",
+    "date_match": true,
+    "status": "MATCHED",
+    "date_source_column": "Activity Check (header: 2025-09-30 00:00:00)",
+    "validation_impact": "Using actual ending_balance as file date matches requested date"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field": 0,
+    "date_field_name": "Activity Check",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-09-30"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 100,
+    "matches_found": 1,
+    "selection_reasoning": "Matched legal entity containing 'AP WINDSOR CO-INVEST, L.P.', account containing 'Cash Custody', and currency USD; only one entry met all criteria.",
+    "excluded_entries": [
+      {"account": "10130 - Investments", "reason": "Account not Cash Custody"},
+      {"account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Account not Cash Custody"},
+      {"account": "10270 - Bank Interest Receivable", "reason": "Account not Cash Custody"},
+      {"account": "10310 - Other Receivables", "reason": "Account not Cash Custody"},
+      {"account": "20000 - Accounts Payable", "reason": "Account not Cash Custody"},
+      {"account": "20001 - Accounts Payable: Audit", "reason": "Account not Cash Custody"},
+      {"account": "20002 - Accounts Payable: Tax", "reason": "Account not Cash Custody"},
+      {"account": "20003 - Accounts Payable: Legal", "reason": "Account not Cash Custody"}
+    ],
+    "date_validation_details": {
+      "discovery_process": "Identified date in column header '2025-09-30 00:00:00' associated with 'Activity Check'",
+      "extraction_method": "Used header name as file date; row cell values under this column were numeric activity counts, not relevant to date extraction",
+      "validation_logic": "Compared extracted file date 2025-09-30 to requested quarter end date 2025-09-30",
+      "final_decision": "Date matches, so ending_balance used as reported"
+    }
+  }
+}

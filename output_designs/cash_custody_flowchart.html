@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>cash_custody_flowchart.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="cash-custody-usd---business-process-flowchart">Cash Custody (USD) - Business Process Flowchart</h1>
+<h2 id="account-10010---cash---chase-custody-usd">Account: 10010 - Cash - Chase Custody (USD)</h2>
+<pre><code class="language-mermaid"><div class="mermaid">flowchart TD
+    subgraph INIT["**INITIALIZATION**"]
+        START([Start: NAV Pack Review - Cash Custody]) --> LOGIN[Login to Bank Portal<br/>JP Morgan]
+        LOGIN --> DOWNLOAD[Download Position Report<br/>for Required Quarter]
+    end
+
+    subgraph SEARCH["**FUND IDENTIFICATION**"]
+        DOWNLOAD --> OPEN_REPORT[Open Position Report PDF]
+        OPEN_REPORT --> SEARCH_FUND[Search for Required Fund<br/>e.g., AP Windsor Co-Invest]
+        SEARCH_FUND --> MULTI_BANK{Fund has multiple<br/>bank accounts?}
+        MULTI_BANK -->|Yes| REPEAT_DOWNLOAD[Download statements from<br/>additional bank portals]
+        REPEAT_DOWNLOAD --> LOCATE_BALANCE
+        MULTI_BANK -->|No| LOCATE_BALANCE[Locate Available Cash Balance<br/>in Position Report]
+    end
+
+    subgraph RECONCILE["**RECONCILIATION**"]
+        LOCATE_BALANCE --> OPEN_NAV[Open NAV Pack Workbook]
+        OPEN_NAV --> GET_TB[Get Trial Balance Ending Balance<br/>Account 10010 - Cash Custody USD]
+        GET_TB --> COMPARE{Compare:<br/>Bank Balance vs<br/>NAV Pack Balance}
+        COMPARE -->|Match| MATCH_END([Balance Matched<br/>No Action Required])
+    end
+
+    subgraph INVESTIGATE["**BREAK INVESTIGATION**"]
+        COMPARE -->|Mismatch| BREAK_DETECTED[Break Detected:<br/>Record Variance Amount]
+        BREAK_DETECTED --> GET_DAILY_CASH[Access Daily Cash File<br/>Excel Spreadsheet]
+        GET_DAILY_CASH --> DOWNLOAD_TXN[Download Transaction Report<br/>from Bank Portal]
+        DOWNLOAD_TXN --> COMPARE_TXN[Compare Transaction Entries:<br/>Bank Report vs Daily Cash File]
+        COMPARE_TXN --> IDENTIFY_MISSING[Identify Missing/<br/>Unrecorded Entries]
+    end
+
+    subgraph ANALYSIS["**ROOT CAUSE ANALYSIS**"]
+        IDENTIFY_MISSING --> ANALYZE_CAUSE{Determine<br/>Break Cause}
+        ANALYZE_CAUSE -->|Missing Entry in Investran| MISSING_ENTRY[Entry exists in bank<br/>but not in daily cash file]
+        ANALYZE_CAUSE -->|Timing Difference| TIMING_CHECK{Transaction after<br/>cut-off time?}
+        ANALYZE_CAUSE -->|Unknown Bank Entry| UNKNOWN_ENTRY[Unrecognized entry<br/>in bank statement]
+    end
+
+    subgraph TIMING["**TIMING VALIDATION**"]
+        TIMING_CHECK -->|Yes| VALID_BREAK[Valid Break:<br/>Transaction will appear<br/>in next day statement]
+        VALID_BREAK --> DOCUMENT_TIMING[Document as Valid<br/>Timing Difference]
+        DOCUMENT_TIMING --> TIMING_END([No Action Required<br/>Valid Break])
+        TIMING_CHECK -->|No| MISSING_ENTRY
+    end
+
+    subgraph BANK_EXCEPTION["**BANK EXCEPTION HANDLING**"]
+        UNKNOWN_ENTRY --> CONTACT_BANK[Contact Bank to<br/>Verify Transaction Source]
+        CONTACT_BANK --> BANK_RESPONSE{Bank confirms<br/>entry is incorrect?}
+        BANK_RESPONSE -->|Yes| REQUEST_REVERSAL[Request Bank to:<br/>1. Rectify Statement<br/>2. Reverse Transaction]
+        REQUEST_REVERSAL --> AWAIT_CORRECTION[Await Bank Correction]
+        AWAIT_CORRECTION --> REDOWNLOAD[Re-download Corrected<br/>Position Report]
+        REDOWNLOAD --> COMPARE
+        BANK_RESPONSE -->|No - Entry is Valid| MISSING_ENTRY
+    end
+
+    subgraph REMEDIATION["**REMEDIATION IN INVESTRAN**"]
+        MISSING_ENTRY --> PREPARE_ENTRY[Prepare Journal Entry<br/>for Investran]
+        PREPARE_ENTRY --> DETERMINE_TYPE[Determine Transaction Type:<br/>- Capital Contribution<br/>- Cash Advance<br/>- Expense<br/>- Bank Interest<br/>- AGM Reimbursement]
+        DETERMINE_TYPE --> BOOK_ENTRY[Book Remediation Entry<br/>in Investran]
+        BOOK_ENTRY --> UPDATE_CASH_FILE[Update Daily Cash File<br/>with New Entry]
+        UPDATE_CASH_FILE --> VERIFY_BALANCE{Re-verify:<br/>Balance now matches?}
+        VERIFY_BALANCE -->|No| COMPARE_TXN
+        VERIFY_BALANCE -->|Yes| REMEDIATION_END([Remediation Complete<br/>Balance Reconciled])
+    end
+
+    subgraph DAILY_BAU["**DAILY BAU PROCESS**"]
+        direction TB
+        BAU_START([Daily Cash File Maintenance]) --> BAU_LOGIN[Login to Bank Portal]
+        BAU_LOGIN --> BAU_DOWNLOAD[Download Daily<br/>Transaction Report]
+        BAU_DOWNLOAD --> BAU_COPY[Copy/Paste Transaction<br/>Details to Daily Cash File]
+        BAU_COPY --> BAU_BOOK[Book Transactions<br/>in Investran]
+        BAU_BOOK --> BAU_END([Daily BAU Complete])
+    end
+
+    %% Styling
+    classDef startEnd fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef process fill:#fff3e0,stroke:#e65100,stroke-width:1px
+    classDef decision fill:#fce4ec,stroke:#880e4f,stroke-width:1px
+    classDef success fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
+    classDef warning fill:#fff8e1,stroke:#f57f17,stroke-width:1px
+    classDef error fill:#ffebee,stroke:#c62828,stroke-width:1px
+
+    class START,MATCH_END,TIMING_END,REMEDIATION_END,BAU_START,BAU_END startEnd
+    class LOGIN,DOWNLOAD,OPEN_REPORT,SEARCH_FUND,LOCATE_BALANCE,OPEN_NAV,GET_TB,BREAK_DETECTED,GET_DAILY_CASH,DOWNLOAD_TXN,COMPARE_TXN,IDENTIFY_MISSING,MISSING_ENTRY,CONTACT_BANK,PREPARE_ENTRY,DETERMINE_TYPE,BOOK_ENTRY,UPDATE_CASH_FILE,REPEAT_DOWNLOAD,REQUEST_REVERSAL,AWAIT_CORRECTION,REDOWNLOAD,BAU_LOGIN,BAU_DOWNLOAD,BAU_COPY,BAU_BOOK process
+    class COMPARE,MULTI_BANK,ANALYZE_CAUSE,TIMING_CHECK,BANK_RESPONSE,VERIFY_BALANCE decision
+    class VALID_BREAK,DOCUMENT_TIMING warning
+    class UNKNOWN_ENTRY error
+</div></code></pre>
+<hr>
+<h2 id="missing-information--open-questions">Missing Information / Open Questions</h2>
+<blockquote>
+<p><strong>NOTE:</strong> The following areas have incomplete or missing information in the source documentation that may need clarification:</p>
+</blockquote>
+<h3 id="1-access--authentication">1. Access &amp; Authentication</h3>
+<ul>
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0"></label><strong>Bank Portal Credentials:</strong> How are login credentials managed for JP Morgan portal? Is there SSO or separate credentials?</li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1"></label><strong>Access Control:</strong> Who has access to download position reports? Is there role-based access?</li>
+</ul>
+<h3 id="2-process-timing--thresholds">2. Process Timing &amp; Thresholds</h3>
+<ul>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2"></label><strong>Cut-off Time:</strong> What is the exact daily cut-off time for transactions that determines valid timing breaks?</li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3"></label><strong>Tolerance Threshold:</strong> Is there a materiality threshold for breaks (e.g., ignore differences &lt; $100)?</li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4"></label><strong>Frequency:</strong> How often is the NAV Pack review performed - quarterly only or also monthly?</li>
+</ul>
+<h3 id="3-multi-bank-account-handling">3. Multi-Bank Account Handling</h3>
+<ul>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5"></label><strong>Bank List:</strong> What other banks besides JP Morgan are used for co-invest funds?</li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6"></label><strong>Consolidation:</strong> How are balances from multiple bank accounts consolidated in the NAV Pack?</li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7"></label><strong>Account Mapping:</strong> How are multiple bank accounts mapped to a single 10010 GL account?</li>
+</ul>
+<h3 id="4-daily-cash-file-details">4. Daily Cash File Details</h3>
+<ul>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8"></label><strong>File Location:</strong> Where is the daily cash file stored? Local drive, shared network, or cloud?</li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9"></label><strong>File Structure:</strong> What are all the required columns/fields in the daily cash file?</li>
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10"></label><strong>Ownership:</strong> Who is responsible for maintaining the daily cash file?</li>
+</ul>
+<h3 id="5-investran-booking-process">5. Investran Booking Process</h3>
+<ul>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11"></label><strong>Entry Types:</strong> What are all valid transaction types beyond those shown (Capital Contribution, Cash Advance, Expense, Bank Interest, AGM Reimbursement)?</li>
+<li><input type="checkbox" id="checkbox12"><label for="checkbox12"></label><strong>Approval Workflow:</strong> Is there a maker-checker or approval process for booking entries?</li>
+<li><input type="checkbox" id="checkbox13"><label for="checkbox13"></label><strong>GL Mapping:</strong> What are the contra accounts used for each transaction type?</li>
+</ul>
+<h3 id="6-exception-handling">6. Exception Handling</h3>
+<ul>
+<li><input type="checkbox" id="checkbox14"><label for="checkbox14"></label><strong>Escalation Path:</strong> What is the escalation process if a break cannot be resolved?</li>
+<li><input type="checkbox" id="checkbox15"><label for="checkbox15"></label><strong>Bank Contact:</strong> Who at the bank should be contacted for incorrect entries? What is the SLA?</li>
+<li><input type="checkbox" id="checkbox16"><label for="checkbox16"></label><strong>Documentation Requirements:</strong> How should breaks and resolutions be documented for audit?</li>
+</ul>
+<h3 id="7-ivp-recon-integration-future-state---feb-2026">7. IVP Recon Integration (Future State - Feb 2026)</h3>
+<ul>
+<li><input type="checkbox" id="checkbox17"><label for="checkbox17"></label><strong>Scope:</strong> Which parts of the current workflow will IVP Recon replace?</li>
+<li><input type="checkbox" id="checkbox18"><label for="checkbox18"></label><strong>Data Flow:</strong> How will bank transaction data flow into IVP Recon?</li>
+<li><input type="checkbox" id="checkbox19"><label for="checkbox19"></label><strong>Transition Plan:</strong> Will there be a parallel run period?</li>
+</ul>
+<h3 id="8-controls--compliance">8. Controls &amp; Compliance</h3>
+<ul>
+<li><input type="checkbox" id="checkbox20"><label for="checkbox20"></label><strong>Segregation of Duties:</strong> Are there SOD controls between who downloads statements and who books entries?</li>
+<li><input type="checkbox" id="checkbox21"><label for="checkbox21"></label><strong>Review/Sign-off:</strong> Is there a review step before finalizing the reconciliation?</li>
+<li><input type="checkbox" id="checkbox22"><label for="checkbox22"></label><strong>Retention:</strong> How long are position reports and daily cash files retained?</li>
+</ul>
+<hr>
+<h2 id="key-systems-referenced">Key Systems Referenced</h2>
+<table>
+<thead>
+<tr>
+<th>System</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JP Morgan Bank Portal</td>
+<td>Download position reports and transaction reports</td>
+</tr>
+<tr>
+<td>NAV Pack (Excel)</td>
+<td>Contains Trial Balance with ending balances</td>
+</tr>
+<tr>
+<td>Daily Cash File (Excel)</td>
+<td>Manual tracking of daily bank transactions</td>
+</tr>
+<tr>
+<td>Investran</td>
+<td>Accounting system for booking journal entries</td>
+</tr>
+<tr>
+<td>IVP Recon</td>
+<td>Future replacement for daily cash reconciliation (Feb 2026)</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="transaction-types-identified">Transaction Types Identified</h2>
+<p>From the daily cash file screenshot (image4):</p>
+<ul>
+<li>Capital Contribution</li>
+<li>Cash Advance</li>
+<li>Expense (AGM Expense Reimbursement)</li>
+<li>Bank Interest</li>
+<li>Compensation</li>
+</ul>
+<hr>
+<p><em>Document generated from: 10010-Cash-Custody (USD)- Business Process.md</em>
+<em>Source date: 12/10/25</em></p>
+
+</body>
+</html>

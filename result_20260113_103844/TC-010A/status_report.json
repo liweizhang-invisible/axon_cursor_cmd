@@ -1,0 +1,24 @@
+{
+  "success": true,
+  "execution_id": "06966673-b2de-7e1a-8000-909e0a815e72",
+  "status": "Running",
+  "start_time": "2026-01-13T15:39:39.180526+00:00",
+  "end_time": null,
+  "token_usage": 58048.0,
+  "steps": [
+    {
+      "id": "06966674-167c-7873-8000-977af250b49a",
+      "result": "Complete",
+      "entity_type": "Team",
+      "failure_reason": null,
+      "failure_detail": null
+    },
+    {
+      "id": "0696667a-18d0-743f-8000-8c77adfd356d",
+      "result": "Running",
+      "entity_type": "Team",
+      "failure_reason": null,
+      "failure_detail": null
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+"Daily Cash File"
+"Multiple Quarters - Filter by Transaction Date"
+"Fund","Account Number","Transaction Date","Transaction Type","Amount","Description","Currency"
+"AP WINDSOR CO-INVEST, L.P.","FFK30","2025-01-15","Expense","10000.00","Management fee","USD"
+"AP WINDSOR CO-INVEST, L.P.","FFK30","2025-02-20","Income","25000.00","Investment income","USD"
+"AP WINDSOR CO-INVEST, L.P.","FFK30","2025-03-10","Expense","15000.00","Operating expense","USD"
+"AP WINDSOR CO-INVEST, L.P.","FFK30","2025-04-15","Expense","12000.00","Management fee","USD"
+"AP WINDSOR CO-INVEST, L.P.","FFK30","2025-05-20","Income","30000.00","Investment income","USD"
+"AP WINDSOR CO-INVEST, L.P.","FFK30","2025-06-10","Expense","18000.00","Operating expense","USD"
+"AP WINDSOR CO-INVEST, L.P.","FFK30","2025-07-15","Expense","15000.00","Management fee","USD"
+"AP WINDSOR CO-INVEST, L.P.","FFK30","2025-08-20","Income","35000.00","Investment income","USD"
+

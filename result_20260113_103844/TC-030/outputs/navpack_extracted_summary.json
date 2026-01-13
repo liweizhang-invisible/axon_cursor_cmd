@@ -1,0 +1,46 @@
+{
+  "ending_balance": 881517.36,
+  "date_validation": {
+    "quarter_end_date_input": "2025-09-30",
+    "file_date_discovered": "2025-09-30",
+    "date_match": true,
+    "status": "MATCHED",
+    "date_source_column": "Header '2025-09-30 00:00:00'",
+    "validation_impact": "Proceeded with actual ending_balance"
+  },
+  "matched_entry": {
+    "legal_entity": "AP Windsor Co-Invest, L.P.",
+    "account": "10010 - Cash - Chase Custody (USD)",
+    "currency": "USD",
+    "date_field": null,
+    "date_field_name": "file-level header date",
+    "ending_balance": 881517.36
+  },
+  "search_criteria": {
+    "fund_name": "AP WINDSOR CO-INVEST, L.P.",
+    "target_account": "Cash Custody",
+    "target_currency": "USD",
+    "quarter_end_date": "2025-09-30"
+  },
+  "ai_analysis": {
+    "total_entries_reviewed": 9,
+    "matches_found": 1,
+    "selection_reasoning": "Fuzzy match on account 'Cash - Chase Custody', exact match on legal entity, currency implicit in account. Only matching entry selected.",
+    "excluded_entries": [
+      {"account": "10130 - Investments", "reason": "Account not containing 'Cash' or 'Custody'"},
+      {"account": "10140 - Unrealized apprec/(deprec) on Investment (BS)", "reason": "Account not containing 'Cash' or 'Custody'"},
+      {"account": "10270 - Bank Interest Receivable", "reason": "Account not containing 'Cash' or 'Custody'"},
+      {"account": "10310 - Other Receivables", "reason": "Account not containing 'Cash' or 'Custody'"},
+      {"account": "20000 - Accounts Payable", "reason": "Wrong account category"},
+      {"account": "20001 - Accounts Payable: Audit", "reason": "Wrong account category"},
+      {"account": "20002 - Accounts Payable: Tax", "reason": "Wrong account category"},
+      {"account": "20003 - Accounts Payable: Legal", "reason": "Wrong account category"}
+    ],
+    "date_validation_details": {
+      "discovery_process": "Identified '2025-09-30 00:00:00' as file-level date in header row.",
+      "extraction_method": "Trimmed time portion from header name.",
+      "validation_logic": "Compare 2025-09-30 (file) == 2025-09-30 (requested)",
+      "final_decision": "Use actual ending_balance since date matched"
+    }
+  }
+}
